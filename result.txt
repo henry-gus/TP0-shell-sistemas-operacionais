@@ -1,8 +1,0 @@
-README.md
-getmarks.py
-grade.sh
-out.txt
-result.txt
-sh.c
-shell
-tests
