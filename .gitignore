@@ -1,4 +1,15 @@
+# executáveis
 a.out
 shell
+
+# arquivos objeto
 *.o
+
+# binários gerais
 *.out
+
+# arquivos temporários
+*~
+
+# arquivos de teste gerados
+*.txt
