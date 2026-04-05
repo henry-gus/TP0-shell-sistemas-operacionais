@@ -172,11 +172,26 @@ main(void)
     }
     /* MARK END task1 */
 
-    if(fork1() == 0)
-      runcmd(parsecmd(buf));
-    wait(&r);
+  // EXTRA 1: suporte a execução em background (&)
+
+  int background = 0;
+
+  // verifica se o comando termina com '&'
+  int len = strlen(buf);
+  if(len > 1 && buf[len-2] == '&'){
+    background = 1;
+    buf[len-2] = '\n';  // remove '&'
+    buf[len-1] = '\0';
   }
-  exit(0);
+
+  if(fork1() == 0)
+    runcmd(parsecmd(buf));
+
+  // se NÃO for background, espera
+  if(!background)
+    wait(&r);
+    }
+exit(0);
 }
 
 int
